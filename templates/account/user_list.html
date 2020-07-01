@@ -1,0 +1,18 @@
+{% extends "base_share.html" %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+
+    <h1>User List</h1>
+    <div>
+    {% for user in all_users %}
+        <a href="{%  url "account:profile" user.username %}">
+        <p>{{ user.username }}</p>
+        </a>
+
+
+    {% endfor %}
+    </div>
+
+{% endblock %}

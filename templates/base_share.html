@@ -1,0 +1,50 @@
+<html>
+
+{% load static %}
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "account/css/style.css" %}">
+</head>
+
+<body>
+<div id="header">
+    <span class="logo"><a href="{% url 'account:dashboard' %}">Share</a></span>
+    {% if request.user.is_authenticated %}
+        <ul class="menu">
+            <li>
+                <a href="{% url 'account:profile' request.user.username %}">My Profile</a>
+            </li>
+            <li>
+                <a href="{% url 'images:image_list' %}">Images</a>
+            </li>
+            <li>
+                <a href="{% url 'account:user_list' %}">User List</a>
+            </li>
+        </ul>
+    {% endif %}
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Hello,
+            {% if request.user.first_name == '' %}
+                <span>Customer</span>
+                {% else %}
+                <span>{{ request.user.first_name }}</span>
+            {% endif %}
+            |
+            <a href="{% url "account:logout" %}">Log out</a>
+        {% else %}
+            <a href="{% url "account:login" %}">Log in</a>
+            |
+            <a href="{% url "account:register" %}">Register</a>
+        {% endif %}
+    </span>
+</div>
+<hr>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+
+</html>
