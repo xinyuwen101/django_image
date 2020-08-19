@@ -4,14 +4,52 @@
 {% load static %}
 
 <head>
-    <title>{% block title %}{% endblock %}</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <!-- Custom Style CSS -->
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "img/site.webmanifest" %}">
+
+    <!-- Title -->
+    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="{% url "account:dashboard" %}">
+        <img src="{% static "img/android-chrome-192x192.png" %}" alt="Logo" width="40" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url "account:dashboard" %}">Dashboard</a>
+            </li>
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">More</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">About me</a>
+                    <a class="dropdown-item" href="https://github.com/xinyuwen23/django_share" target="_blank">View source code</a>
+                    <a class="dropdown-item" href="#">Back to Portfolio</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="container">
@@ -27,79 +65,55 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 {% if request.user.is_authenticated %}
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{% url 'account:dashboard' %}">Home</a></li>
-                    <li><a href="{% url 'images:image_list' %}">Images</a></li>
-                    <li><a href="{% url 'account:profile' request.user.username %}">My Profile</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other Projects<span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Project 2</a></li>
-                            <li><a href="#">Project 3</a></li>
-                            <li><a href="#">Project 4</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'account:dashboard' %}">Home</a></li>
+                        <li><a href="{% url 'images:image_list' %}">Images</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">More<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View source code</a></li>
+                                <li><a href="#">Back to portfolio</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 {% endif %}
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">About me</a></li>
-                    <li><a href="https://github.com/xinyuwen23/django_blog">View Source Code</a></li>
                     {% if request.user.is_authenticated %}
-                        <li>Hello, <span>{{ request.user.first_name }}</span></li>
-                        <li><a href="{% url "account:logout" %}">Log out</a></li>
+                        <li>
+                            <a href="{% url 'account:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
+                        </li>
+                        <li><a href="{% url 'account:logout' %}">Log out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'account:login' %}">Log in</a></li>
+                        <li><a href="{% url 'account:register' %}">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </div>
 </nav>
-<div id="header">
-    <span class="logo"><a href="{% url 'account:dashboard' %}">Share</a></span>
-    {% if request.user.is_authenticated %}
-        <ul class="menu">
-            <li>
-                <a href="{% url 'account:profile' request.user.username %}">My Profile</a>
-            </li>
-            <li>
-                <a href="{% url 'images:image_list' %}">Images</a>
-            </li>
-            <li>
-                <a href="{% url 'account:user_list' %}">User List</a>
-            </li>
-        </ul>
-    {% endif %}
-    <span class="user">
-        {% if request.user.is_authenticated %}
-            Hello,
-            {% if request.user.first_name == '' %}
-                <span>Customer</span>
-            {% else %}
-                <span>{{ request.user.first_name }}</span>
-            {% endif %}
-            |
-            <a href="{% url "account:logout" %}">Log out</a>
-        {% else %}
-            <a href="{% url "account:login" %}">Log in</a>
-            |
-            <a href="{% url "account:register" %}">Register</a>
-        {% endif %}
-    </span>
-</div>
-<hr>
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
-<hr>
-<div id="footer">
-    <small>&copy; 2017-
-        <script type="text/javascript">
-            document.write(new Date().getFullYear());
-        </script>
-        by Xinyu Wen. All rights reserved.
-        <a href="mailto:me.xinyuwen@gmail.com">Questions?</a>
-    </small>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div id="main">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div id="footer">
+        <small>&copy; 2017-
+            <script type="text/javascript">
+                document.write(new Date().getFullYear());
+            </script>
+            by Xinyu Wen. All rights reserved.
+            <a href="mailto:me.xinyuwen@gmail.com">Questions?</a>
+        </small>
+    </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{% static "js/jquery-1.12.4.min.js" %}"></script>
