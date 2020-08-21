@@ -24,6 +24,8 @@
 </head>
 
 <body>
+
+<!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" href="{% url "account:dashboard" %}">
         <img src="{% static "img/android-chrome-192x192.png" %}" alt="Logo" width="35" height="35">
@@ -36,7 +38,7 @@
         <ul class="navbar-nav mr-auto">
             {% if request.user.is_authenticated %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url "account:dashboard" %}">Dashboard</a>
+                    <a class="nav-link" href="{% url "account:dashboard" %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "images:image_list" %}">Images</a>
@@ -54,7 +56,6 @@
                 </li>
             {% endif %}
         </ul>
-
         <ul class="navbar-nav">
             {% if request.user.is_authenticated %}
                 <li class="nav-item">
@@ -77,51 +78,7 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container-fluid">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{% url 'account:dashboard' %}">Share</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                {% if request.user.is_authenticated %}
-                    <ul class="nav navbar-nav">
-                        <li><a href="{% url 'account:dashboard' %}">Home</a></li>
-                        <li><a href="{% url 'images:image_list' %}">Images</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true"
-                               aria-expanded="false">More<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">View source code</a></li>
-                                <li><a href="#">Back to portfolio</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                {% endif %}
-                <ul class="nav navbar-nav navbar-right">
-                    {% if request.user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'account:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
-                        </li>
-                        <li><a href="{% url 'account:logout' %}">Log out</a></li>
-                    {% else %}
-                        <li><a href="{% url 'account:login' %}">Log in</a></li>
-                        <li><a href="{% url 'account:register' %}">Register</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
+<!-- Main content-->
 <div class="container">
     <div class="row">
         <div class="col-md-9">
@@ -132,6 +89,8 @@
         </div>
     </div>
     <hr>
+
+    <!-- Footer -->
     <div id="footer">
         <small>&copy; 2017-
             <script type="text/javascript">
@@ -142,9 +101,10 @@
         </small>
     </div>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static "js/jquery-1.12.4.min.js" %}"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static "js/jquery-3.5.1.slim.min.js" %}"></script>
+<script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
 </body>
 </html>
