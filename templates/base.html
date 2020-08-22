@@ -37,14 +37,14 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             {% if request.user.is_authenticated %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url "account:dashboard" %}">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url "account:dashboard" %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url "images:image_list" %}">Images</a>
+                    <a class="nav-link text-light" href="{% url "images:image_list" %}">Images</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">More</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -59,19 +59,19 @@
         <ul class="navbar-nav">
             {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link"
+                    <a class="nav-link text-light"
                        href="{% url 'account:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account:logout' %}">Log out</a>
+                    <a class="nav-link text-light" href="{% url 'account:logout' %}">Log out</a>
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link"
+                    <a class="nav-link text-light"
                        href="{% url 'account:login' %}">Log in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account:register' %}">Register</a>
+                    <a class="nav-link text-light" href="{% url 'account:register' %}">Register</a>
                 </li>
             {% endif %}
         </ul>
@@ -88,11 +88,15 @@
             </div>
         </div>
     </div>
-    <hr>
+</div>
 
-    <!-- Footer -->
-    <div id="footer">
-        <small>&copy;
+<!-- Footer -->
+<footer class="text-muted bg-light" style="padding-top: 30px; padding-bottom: 30px;">
+    <div class="container">
+        <p class="float-right">
+            <a class="text-decoration-none" href="#">Back to top</a>
+        </p>
+        <small class="font-weight-light">&copy;
             <script type="text/javascript">
                 document.write(new Date().getFullYear().toString());
             </script>
@@ -100,7 +104,7 @@
             <a href="mailto:me.xinyuwen@gmail.com">Questions?</a>
         </small>
     </div>
-</div>
+</footer>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
