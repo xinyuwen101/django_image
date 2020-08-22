@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 {% load static %}
 
@@ -20,10 +20,10 @@
     <link rel="manifest" href="{% static "img/site.webmanifest" %}">
 
     <!-- Title -->
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} | iShare</title>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -91,7 +91,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="text-muted bg-light" style="padding-top: 30px; padding-bottom: 30px;">
+<footer class="footer mt-auto py-3 bg-light" style="padding-top: 30px; padding-bottom: 30px;">
     <div class="container">
         <p class="float-right">
             <a class="text-decoration-none" href="#">Back to top</a>
