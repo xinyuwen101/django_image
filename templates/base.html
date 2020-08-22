@@ -42,7 +42,8 @@
                     <a class="nav-link text-light" href="{% url "images:image_list" %}">Images</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="{% url "account:profile" request.user.username %}">My profile</a>
+                    <a class="nav-link text-light" href="{% url "account:profile" request.user.username %}">My
+                        profile</a>
                 </li>
                 </li>
                 <li class="nav-item">
@@ -83,14 +84,12 @@
     </div>
 </nav>
 
-<!-- Main content-->
+<!-- Main content -->
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
-            <div id="main">
-                {% block content %}
-                {% endblock %}
-            </div>
+        <div id="main">
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 </div>
