@@ -4,15 +4,19 @@
 
 {% block content %}
     <h1>Log in</h1>
-    <p>Please, use the following form to log in
-        , or <a href="{% url "account:register" %}">register an account</a>
-    </p>
-    <form action="." method="POST">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Log in"></p>
-    </form>
+    <p>Please log in, or <a href="{% url "account:register" %}">register an account</a></p>
+    <small>*For demo: please use the following username and password:<br>
+        Username: <code>test</code><br>
+        Password: <code>share2020</code>
+    </small>
+    <div class="my-4">
+        <form action="." method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Log in"></p>
+        </form>
+    </div>
 
-{#    <li><a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a></li>#}
+    <li><a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a></li>
 
 {% endblock %}
