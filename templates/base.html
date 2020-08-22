@@ -41,16 +41,19 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="{% url "images:image_list" %}">Images</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="{% url "account:profile" request.user.username %}">My
-                        profile</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="{% url "account:user_list" %}">All users</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">View</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item"
+                           href="{% url "account:profile" request.user.username %}">My profile</a>
+                        <a class="dropdown-item"
+                           href="{% url "account:user_list" %}">User list</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown01" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">More</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -95,7 +98,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer mt-auto py-3 bg-light" style="padding-top: 30px; padding-bottom: 30px;">
+<footer class="footer mt-auto py-3 bg-light">
     <div class="container">
         <p class="float-right">
             <a class="text-decoration-none" href="#">Back to top</a>
