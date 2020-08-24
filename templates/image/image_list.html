@@ -10,38 +10,38 @@
 
     <p>If you want to upload new images, please click <a href="{% url 'images:image_upload' %}">here</a></p>
 
-    <div id="image-list">
-
+    <div class="card-columns">
         {% for image in images %}
-            <div class="image">
+            <div class="card my-3 shadow-sm">
                 <a href="{{ image.get_absolute_url }}">
-                    {% thumbnail image.image "300x300" crop="100%" as im %}
+                    {% thumbnail image.image "800x600" crop="100%" as im %}
                         <a href="{{ image.get_absolute_url }}">
-                            <img src="{{ im.url }}">
+                            <img class="card-img-top" src="{{ im.url }}">
                         </a>
                     {% endthumbnail %}
                 </a>
-                <div class="info">
-                    <a href="{{ image.get_absolute_url }}" class="title">
-                        {{ image.title }}
-                    </a></div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ image.title }}</h5>
+                    <p class="card-text"><small class="text-muted">{{ image.created }}</small></p>
+                </div>
             </div>
         {% endfor %}
     </div>
 
-    <div>
-        <ul>
-            {% if images.has_previous %}
-                <li>
-                    <a href="?page={{ images.previous_page_number }}">&larr; Previous Page</a>
-                </li>
-            {% endif %}
-            {% if images.has_next %}
-                <li>
-                    <a href="?page={{ images.next_page_number }}">Next Page &rarr;</a>
-                </li>
-            {% endif %}
-        </ul>
-    </div>
+    <!-- Page buttons -->
+    <nav class="text-center my-4">
+        {% if images.has_previous %}
+            <a class="btn btn-outline-primary" href="?page={{ images.previous_page_number }}">Previous</a>
+        {% else %}
+            <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        {% endif %}
+
+        {% if images.has_next %}
+            <a class="btn btn-outline-primary" href="?page={{ images.next_page_number }}">Next</a>
+        {% else %}
+            <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1"
+               aria-disabled="true">Next</a>
+        {% endif %}
+    </nav>
 
 {% endblock %}

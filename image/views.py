@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render, redirect
 
 from .forms import ImageForm
 from .models import Image
@@ -8,7 +8,6 @@ from .models import Image
 
 @login_required
 def image_upload(request):
-
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
@@ -26,8 +25,9 @@ def image_upload(request):
 @login_required
 def image_list(request):
     images = Image.objects.all()
-    paginator = Paginator(images, 8)
+    paginator = Paginator(images, 6)
     page = request.GET.get('page')
+
     try:
         images = paginator.page(page)
     except PageNotAnInteger:
