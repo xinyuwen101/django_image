@@ -41,16 +41,8 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="{% url "images:image_list" %}">Images</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false">View</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item"
-                           href="{% url "account:profile" request.user.username %}">My profile</a>
-                        <a class="dropdown-item"
-                           href="{% url "account:user_list" %}">User list</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url "account:profile" request.user.username %}">Profile</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown"

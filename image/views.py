@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 
@@ -46,10 +47,14 @@ def image_list(request):
 @login_required
 def image_detail(request, id, slug):
     image = Image.objects.filter(id=id, slug=slug).first()
+    author = User.objects.filter(id=image.user_id).first()
     return render(
         request,
         'image/image_detail.html',
-        {'image': image}
+        {
+            'image': image,
+            'author': author
+        }
     )
 
 

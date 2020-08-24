@@ -5,6 +5,7 @@
 {% block content %}
 
     <h1>{{ image.title }}</h1>
+    <p>Uploaded by {{ author }} on {{ image.created }}</p>
     <img src="{{ image.image.url }}">
 
     {% with total_likes=image.user_like.count users_like=image.user_like.all %}
