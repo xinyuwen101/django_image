@@ -10,6 +10,7 @@
 
     <p>If you want to upload new images, please click <a href="{% url 'images:image_upload' %}">here</a></p>
 
+    <!-- Image list -->
     <div class="card-columns">
         {% for image in images %}
             <div class="card my-3 shadow-sm">
@@ -28,7 +29,7 @@
         {% endfor %}
     </div>
 
-    <!-- Page buttons -->
+    <!-- Pagination -->
     <nav class="py-3">
         <ul class="pagination justify-content-center">
             {% if images.has_previous %}
