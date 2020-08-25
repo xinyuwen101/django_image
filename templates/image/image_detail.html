@@ -16,7 +16,7 @@
         </div>
 
         {% with total_likes=image.user_like.count users_like=image.user_like.all %}
-            <div>
+            <div class="col-md-6">
                 {% if request.user in users_like %}
                     <a class="btn btn-primary my-2" href="{% url "images:image_unlike" image.id %}">
                         {% if total_likes %}
@@ -38,8 +38,8 @@
                         {% endif %}
                     </a>
                 {% endif %}
-                {% if image.description %}
-                    <p>There's no description for this image.</p>
+                {% if image.description == '' %}
+                    <p class="mt-5">There's no description for this image.</p>
                 {% else %}
                     <p>{{ image.description|linebreaks }}</p>
                 {% endif %}
