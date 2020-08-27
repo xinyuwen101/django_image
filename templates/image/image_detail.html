@@ -3,7 +3,7 @@
 {% block title %}{{ image.title }}{% endblock %}
 
 {% block content %}
-    
+
     <h1>{{ image.title }}</h1>
     <p class="text-secondary">Uploaded by
         <a href="{% url "account:profile" author %}"><span class="font-italic"> {{ author }} </span></a>
