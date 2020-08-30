@@ -3,20 +3,29 @@
 {% block title %}Log in{% endblock %}
 
 {% block content %}
-    <h1>Log in</h1>
-    <p>Please log in, or <a href="{% url "account:register" %}">register an account</a></p>
-    <small>*For demo: please use the following username and password:<br>
-        Username: <code>test</code><br>
-        Password: <code>share2020</code>
-    </small>
-    <div class="my-4">
-        <form action="." method="POST">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <p><input type="submit" value="Log in"></p>
-        </form>
+    <div class="container my-5">
+        <div class="col-md-5 mx-auto">
+            <div class="text-center">
+                <h1>Log in</h1>
+                <small class="text-secondary font-weight-light">
+                    *For demo use: username: <code>test</code>, password: <code>share2020</code>
+                </small>
+            </div>
+            <div class="my-4 mx-5">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" value="test" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" value="share2020" required>
+                    </div>
+                    <input type="submit" value="Log in" class="btn btn-success btn-block my-4">
+                </form>
+            </div>
+            {#    <li><a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a></li>#}
+        </div>
     </div>
-
-{#    <li><a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a></li>#}
-
 {% endblock %}

@@ -3,8 +3,14 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-    <h1>Welcome to iShare!</h1>
-    <p>Click
-        <a href="{% url 'images:image_list' %}">here</a>
-        to start viewing all images.</p>
+    <div class="container text-center my-5">
+        <div class="col-md-4 mx-auto">
+            <div class="py-4">
+                <h1>Welcome to iShare</h1>
+                <small class="font-italic font-weight-light text-secondary">An image-sharing web app</small>
+            </div>
+            <a class="btn btn-success btn-block" href="{% url 'images:image_list' %}">View all images</a>
+            <a class="btn btn-success btn-block" href="{% url 'images:image_upload' %}">Upload a new image</a>
+        </div>
+    </div>
 {% endblock %}

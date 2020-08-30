@@ -1,12 +1,12 @@
+from django.contrib import messages, auth
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from .forms import MyUserCreationForm
 from .models import Contact
+from .forms import MyUserCreationForm
 
 
-@login_required
 def dashboard(request):
     return render(request, 'account/dashboard.html')
 
@@ -20,11 +20,7 @@ def register(request):
                 user_form.cleaned_data['password1']
             )
             new_user.save()
-            return render(
-                request,
-                'account/register_done.html',
-                {'new_user': new_user}
-            )
+            return redirect('account:login')
     else:
         user_form = MyUserCreationForm()
     return render(

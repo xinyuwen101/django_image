@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# from hashlib import md5
-
 
 class Contact(models.Model):
 
@@ -34,14 +32,3 @@ User.add_to_class(
         related_name='followers',
         symmetrical=False)
 )
-
-
-# def gravatar(self, size=80):
-#     md5_digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-#     return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(md5_digest, size)
-
-
-# User.add_to_class(
-#     'gravatar',
-#     gravatar
-# )

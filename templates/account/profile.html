@@ -29,10 +29,6 @@
         {% endif %}
     </div>
 
-    {% if request.user.username == user.username %}
-        <a href="{% url 'account:password_change' %}">Change password</a>
-    {% endif %}
-
     <a href="{% url "account:user_list" %}">User List</a>
 
 
