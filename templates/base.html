@@ -1,7 +1,7 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
-{% load static %}
 
 <head>
     <!-- Required meta tags -->
@@ -17,6 +17,7 @@
     <!-- Title -->
     <title>{% block title %}{% endblock %} | iShare</title>
 </head>
+
 <body class="d-flex flex-column h-100">
 <!-- Navbar -->
 {% include 'partials/navbar.html' %}
@@ -24,6 +25,7 @@
 {% block content %}{% endblock %}
 <!-- Footer -->
 {% include 'partials/footer.html' %}
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="{% static "js/jquery-3.5.1.slim.min.js" %}"></script>
