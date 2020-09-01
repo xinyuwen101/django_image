@@ -7,13 +7,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/apple-touch-icon.png" %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon-32x32.png" %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/favicon-16x16.png" %}">
     <link rel="manifest" href="{% static "img/site.webmanifest" %}">
+
     <!-- Title -->
     <title>{% block title %}{% endblock %} | iShare</title>
 </head>
@@ -21,8 +24,10 @@
 <body class="d-flex flex-column h-100">
 <!-- Navbar -->
 {% include 'partials/navbar.html' %}
+
 <!-- Main comment -->
 {% block content %}{% endblock %}
+
 <!-- Footer -->
 {% include 'partials/footer.html' %}
 
