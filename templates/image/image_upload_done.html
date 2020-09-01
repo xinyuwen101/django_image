@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
+{% block title %}Image upload done{% endblock %}
+
 {% block content %}
 
-    <div class="container text-center my-5">
-        <h3>Image uploaded successfully!</h3>
+    <div class="container text-center my-4">
+        <h3 class="py-5">Image uploaded successfully!</h3>
+        <div class="col-md-4 mx-auto">
+            <a class="btn btn-success btn-block" href="{% url 'images:image_list' %}">View all images</a>
+        </div>
     </div>
 
 {% endblock %}

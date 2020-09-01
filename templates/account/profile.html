@@ -1,35 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}{{ user.username }}{% endblock %}
 
 {% block content %}
-    {% if request.user.username == user.username %}
-        <h1>My Profile</h1>
-    {% else %}
-        <h1>User Profile</h1>
-    {% endif %}
+    <div class="container">
+        <div class="text-center my-4">
+            <h1>{{ user.username }}</h1>
+        </div>
 
-    <p>Account: {{ user.username }}</p>
-    <p>First Name: {{ user.first_name }}</p>
-    <p>Last Name: {{ user.last_name }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Followers: {{ user.followers.count }}</p>
-    <p>Following: {{ user.following.count }}</p>
-    <hr>
-
-    <div class="image-info">
-        {% if request.user.username != user.username %}
-            <div>
-                {% if request.user in user.followers.all %}
-                    <a class="count-like" href="{% url "account:unfollow" user.username %}">following</a>
-                {% else %}
-                    <a class="count" href="{% url "account:follow" user.username %}">follow</a>
+        <div class="col-md-8 mx-auto row jumbotron bg-white border border-dark py-4">
+            <div class="col">
+                <p>Account: {{ user.username }}</p>
+                <p>First Name: {{ user.first_name }}</p>
+                <p>Last Name: {{ user.last_name }}</p>
+            </div>
+            <div class="col">
+                <p>Email: {{ user.email }}</p>
+                <p>Followers: {{ user.followers.count }}</p>
+                <p>Following: {{ user.following.count }}</p>
+            </div>
+            <div class="float-right">
+                {% if request.user.username != user.username %}
+                    {% if request.user in user.followers.all %}
+                        <a class="btn btn-success" href="{% url "account:unfollow" user.username %}">following</a>
+                    {% else %}
+                        <a class="btn btn-outline-success"
+                           href="{% url "account:follow" user.username %}">follow</a>
+                    {% endif %}
                 {% endif %}
             </div>
-        {% endif %}
-    </div>
+        </div>
 
-    <a href="{% url "account:user_list" %}">User List</a>
+        <div class="col-md-4 mx-auto my-5">
+            <a href="{% url "account:user_list" %}" class="btn btn-success btn-block">Show all users</a>
+        </div>
+    </div>
 
 
 {% endblock %}

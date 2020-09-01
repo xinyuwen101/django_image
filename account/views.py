@@ -20,7 +20,7 @@ def register(request):
                 user_form.cleaned_data['password1']
             )
             new_user.save()
-            return redirect('account:login')
+            return render(request, 'account/register_done.html')
     else:
         user_form = MyUserCreationForm()
     return render(

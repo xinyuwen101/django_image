@@ -4,15 +4,15 @@
 
 {% block content %}
 
-    <h1>User List</h1>
-    <div>
-    {% for user in all_users %}
-        <a href="{%  url "account:profile" user.username %}">
-        <p>{{ user.username }}</p>
-        </a>
-
-
-    {% endfor %}
+    <div class="container text-center">
+        <h1 class="my-4">User List</h1>
+        <div class="jumbotron bg-white border border-dark col-md-8 mx-auto py-4">
+            {% for user in all_users %}
+                <a class="btn btn-success mx-1 px-4 my-2" href="{% url "account:profile" user.username %}">
+                    {{ user.username }}
+                </a>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
