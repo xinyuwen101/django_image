@@ -8,7 +8,7 @@ LOGOUT_URL = '/logout'
 # auth backends
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'account.authentication.EmailAuthBackend',
+    # 'account.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
 ]
 
