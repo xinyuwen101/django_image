@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container">
-        <a class="navbar-brand" href="{% url "account:dashboard" %}">
+        <a class="navbar-brand" href="{% url "accounts:dashboard" %}">
             <img src="{% static "img/android-chrome-512x512.png" %}" alt="Logo" width="40" height="40">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="{% url "account:dashboard" %}">Home</a>
+                    <a class="nav-link text-light" href="{% url "accounts:dashboard" %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="{% url "images:image_list" %}">Images</a>
@@ -33,18 +33,18 @@
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link text-light"
-                           href="{% url 'account:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
+                           href="{% url 'accounts:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'account:logout' %}">Log out</a>
+                        <a class="nav-link text-light" href="{% url 'accounts:logout' %}">Log out</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'account:register' %}">Register</a>
+                        <a class="nav-link text-light" href="{% url 'accounts:register' %}">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light"
-                           href="{% url 'account:login' %}">Log in</a>
+                           href="{% url 'accounts:login' %}">Log in</a>
                     </li>
                 {% endif %}
             </ul>

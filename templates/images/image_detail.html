@@ -7,7 +7,7 @@
     <div class="container">
         <h1 class="mt-3">{{ image.title }}</h1>
         <small class="text-secondary font-weight-light font-italic">Uploaded by
-            <a href="{% url "account:profile" author %}"><span class="font-italic"> {{ author }} </span></a>
+            <a href="{% url "accounts:profile" author %}"><span class="font-italic"> {{ author }} </span></a>
             on {{ image.created }}</small>
 
         <div class="row mt-4 mb-5">

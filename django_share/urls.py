@@ -7,8 +7,8 @@ from .settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('account.urls')),
-    path('image/', include('image.urls')),
+    path('', include('accounts.urls')),
+    path('images/', include('images.urls')),
     path('social-auth/', include('social_django.urls')),
 ]
 

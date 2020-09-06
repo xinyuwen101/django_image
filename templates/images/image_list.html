@@ -14,7 +14,7 @@
             {% for image in images %}
                 <div class="card my-3 shadow-sm">
                     <a href="{{ image.get_absolute_url }}">
-                        {% thumbnail image.image "400x300" crop="100%" as im %}
+                        {% thumbnail image.image "320x240" crop="100%" as im %}
                             <a href="{{ image.get_absolute_url }}">
                                 <img class="card-img-top" src="{{ im.url }}" alt="{{ im.title }}">
                             </a>

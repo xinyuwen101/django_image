@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('url', models.URLField()),
                 ('description', models.TextField(blank=True)),
                 ('created', models.DateField(auto_now_add=True, db_index=True)),
-                ('image', models.ImageField(upload_to='images/%Y/%m/%d/')),
+                ('images', models.ImageField(upload_to='images/%Y/%m/%d/')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images_created', to=settings.AUTH_USER_MODEL)),
                 ('user_like', models.ManyToManyField(blank=True, related_name='images_liked', to=settings.AUTH_USER_MODEL)),
             ],

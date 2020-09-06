@@ -8,7 +8,7 @@ from .forms import MyUserCreationForm
 
 
 def dashboard(request):
-    return render(request, 'account/dashboard.html')
+    return render(request, 'accounts/dashboard.html')
 
 
 def register(request):
@@ -20,12 +20,12 @@ def register(request):
                 user_form.cleaned_data['password1']
             )
             new_user.save()
-            return render(request, 'account/register_done.html')
+            return render(request, 'accounts/register_done.html')
     else:
         user_form = MyUserCreationForm()
     return render(
         request,
-        'account/register.html',
+        'accounts/register.html',
         {'user_form': user_form}
     )
 
@@ -35,7 +35,7 @@ def profile(request, username):
     user = User.objects.filter(username=username).first()
     return render(
         request,
-        'account/profile.html',
+        'accounts/profile.html',
         {'user': user}
     )
 
@@ -45,7 +45,7 @@ def user_list(request):
     all_users = User.objects.all()
     return render(
         request,
-        'account/user_list.html',
+        'accounts/user_list.html',
         {'all_users': all_users}
     )
 
@@ -59,7 +59,7 @@ def follow(request, username):
         user_to=user_to
     )
     con.save()
-    return redirect('account:profile', username=username)
+    return redirect('accounts:profile', username=username)
 
 
 @login_required
@@ -69,4 +69,4 @@ def unfollow(request, username):
     con = Contact.objects.filter(user_from=user_from, user_to=user_to).first()
     if con:
         con.delete()
-    return redirect('account:profile', username=username)
+    return redirect('accounts:profile', username=username)

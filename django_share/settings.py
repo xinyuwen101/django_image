@@ -8,7 +8,7 @@ LOGOUT_URL = '/logout'
 # auth backends
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    # 'account.authentication.EmailAuthBackend',
+    # 'accounts.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
 ]
 
@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig',
-    'image.apps.ImageConfig',
+    'accounts.apps.AccountConfig',
+    'images.apps.ImageConfig',
     'sorl.thumbnail',
     'social_django',
 ]
