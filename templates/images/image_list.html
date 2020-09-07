@@ -6,13 +6,13 @@
 
 {% block content %}
 
-    <div class="container">
-        <h1 class="display-4 text-center my-4">Images</h1>
+    <div class="container my-5">
+        <h1 class="display-4 text-center mb-4">Images</h1>
         <a href="{% url "images:image_upload" %}" class="font-weight-light mb-5">Click here to upload an image</a>
         <!-- Image list -->
         <div class="card-columns">
             {% for image in images %}
-                <div class="card my-3 shadow-sm">
+                <div class="card my-3">
                     <a href="{{ image.get_absolute_url }}">
                         {% thumbnail image.image "320x240" crop="100%" as im %}
                             <a href="{{ image.get_absolute_url }}">
@@ -22,14 +22,14 @@
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ image.title }}</h5>
-                        <p class="card-text"><small class="text-muted">{{ image.created }}</small></p>
+                        <div class="card-text"><small class="text-muted">{{ image.created }}</small></div>
                     </div>
                 </div>
             {% endfor %}
         </div>
 
         <!-- Pagination -->
-        <nav class="py-5">
+        <nav class="mt-4">
             <ul class="pagination justify-content-center">
                 {% if images.has_previous %}
                     <li class="page-item">

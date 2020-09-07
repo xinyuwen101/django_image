@@ -3,14 +3,13 @@
 {% block title %}{{ image.title }}{% endblock %}
 
 {% block content %}
-    <div class="container mt-2">
-        <a class="font-weight-light" href="javascript:history.go(-1);">&laquo; Back</a>
+    <div class="container my-5">
         <h1 class="display-4">{{ image.title }}</h1>
         <small class="text-secondary font-weight-light font-italic">Uploaded by
             <a href="{% url "accounts:profile" author %}"><span class="font-italic"> {{ author }} </span></a>
             on {{ image.created }}</small>
 
-        <div class="row mt-4 mb-5">
+        <div class="row mt-4">
             <div class="col-md-7">
                 <img src="{{ image.image.url }}" class="img-thumbnail shadow-sm">
             </div>
