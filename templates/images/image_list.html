@@ -7,8 +7,8 @@
 {% block content %}
 
     <div class="container">
-        <h1 class="my-3">Images</h1>
-        <a href="{% url "images:image_upload" %}" class="btn btn-outline-primary my-1">Upload an image</a>
+        <h1 class="display-4 text-center my-4">Images</h1>
+        <a href="{% url "images:image_upload" %}" class="font-weight-light mb-5">Click here to upload an image</a>
         <!-- Image list -->
         <div class="card-columns">
             {% for image in images %}
