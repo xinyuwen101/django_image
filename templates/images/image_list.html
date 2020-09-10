@@ -8,9 +8,9 @@
 
     <div class="container my-5">
         <h1 class="display-4 text-center mb-4">Images</h1>
-        <a href="{% url "images:image_upload" %}" class="font-weight-light mb-5">Click here to upload an image</a>
+        <a class="btn btn-outline-primary" href="{% url "images:image_upload" %}">Upload an image</a>
         <!-- Image list -->
-        <div class="card-columns">
+        <div class="card-columns mt-2">
             {% for image in images %}
                 <div class="card my-3">
                     <a href="{{ image.get_absolute_url }}">
@@ -29,7 +29,7 @@
         </div>
 
         <!-- Pagination -->
-        <nav class="mt-4">
+        <nav class="mt-5">
             <ul class="pagination justify-content-center">
                 {% if images.has_previous %}
                     <li class="page-item">

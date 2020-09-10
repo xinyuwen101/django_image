@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="container my-5">
-        <h1 class="display-4">{{ image.title }}</h1>
+        <h1 class="display-4 mb-3">{{ image.title }}</h1>
         <small class="text-secondary font-weight-light font-italic">Uploaded by
             <a href="{% url "accounts:profile" author %}"><span class="font-italic"> {{ author }} </span></a>
             on {{ image.created }}</small>
