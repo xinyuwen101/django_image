@@ -6,14 +6,14 @@ LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
 # auth backends
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+# AUTHENTICATION_BACKENDS = [
+    # 'django.contrib.auth.backends.ModelBackend',
     # 'accounts.authentication.EmailAuthBackend',
-    'social_core.backends.google.GoogleOAuth2',
-]
+    # 'social_core.backends.google.GoogleOAuth2',
+# ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

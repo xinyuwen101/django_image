@@ -9,7 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')),
     path('images/', include('images.urls')),
-    path('social-auth/', include('social_django.urls')),
+    # path('social-auth/', include('social_django.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
