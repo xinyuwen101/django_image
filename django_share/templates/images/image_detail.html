@@ -4,18 +4,18 @@
 
 {% block content %}
     <div class="container my-5">
-        <h1 class="display-4 mb-3">{{ image.title }}</h1>
+        <h1 class="display-4">{{ image.title }}</h1>
         <small class="text-secondary font-weight-light font-italic">Uploaded by
             <a href="{% url "accounts:profile" author %}"><span class="font-italic"> {{ author }} </span></a>
             on {{ image.created }}</small>
 
-        <div class="row mt-4">
-            <div class="col-md-7">
+        <div class="row mt-5">
+            <div class="col-md-8">
                 <img src="{{ image.image.url }}" class="img-thumbnail shadow-sm">
             </div>
 
             {% with total_likes=image.user_like.count users_like=image.user_like.all %}
-                <div class="col-md-5">
+                <div class="col-md-4">
                     {% if request.user in users_like %}
                         <a class="btn btn-primary my-2" href="{% url "images:image_unlike" image.id %}">
                             {% if total_likes %}

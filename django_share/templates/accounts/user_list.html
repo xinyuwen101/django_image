@@ -8,7 +8,7 @@
         <h1 class="font-weight-light my-4">User List</h1>
         <div class="jumbotron bg-white border col-md-7 mx-auto py-4 mt-5">
             {% for user in all_users %}
-                <a class="btn btn-outline-primary mx-1 px-4 my-2" href="{% url "accounts:profile" user.username %}">
+                <a class="btn btn-outline-primary font-italic mx-1 px-4 my-2" href="{% url "accounts:profile" user.username %}">
                     {{ user.username }}
                 </a>
             {% endfor %}

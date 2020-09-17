@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom py-2">
     <div class="container">
         <a class="navbar-brand" href="{% url "accounts:dashboard" %}">
             <img src="{% static "img/android-chrome-512x512.png" %}" alt="Logo" width="30" height="30">
@@ -12,13 +12,13 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="{% url "accounts:dashboard" %}">Home</a>
+                    <a class="nav-link text-light" href="{% url "accounts:dashboard" %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="{% url "images:image_list" %}">Images</a>
+                    <a class="nav-link text-light" href="{% url "images:image_list" %}">Images</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark" href="#" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">About</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -32,18 +32,18 @@
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link text-dark"
+                        <a class="nav-link text-light"
                            href="{% url 'accounts:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{% url 'accounts:logout' %}">Log out</a>
+                        <a class="nav-link text-light" href="{% url 'accounts:logout' %}">Log out</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{% url 'accounts:register' %}">Register</a>
+                        <a class="nav-link text-light" href="{% url 'accounts:register' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark"
+                        <a class="nav-link text-light"
                            href="{% url 'accounts:login' %}">Log in</a>
                     </li>
                 {% endif %}

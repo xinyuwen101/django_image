@@ -7,10 +7,12 @@
 {% block content %}
 
     <div class="container my-5">
-        <h1 class="display-4 text-center mb-4">Images</h1>
-        <a class="btn btn-outline-primary" href="{% url "images:image_upload" %}">Upload an image</a>
+        <h1 class="display-4 text-center">Images</h1>
+        <div class="col-md-4 mx-auto mt-5">
+            <a class="btn btn-outline-primary btn-block" href="{% url "images:image_upload" %}">Upload an image</a>
+        </div>
         <!-- Image list -->
-        <div class="card-columns mt-2">
+        <div class="card-columns mt-3">
             {% for image in images %}
                 <div class="card my-3">
                     <a href="{{ image.get_absolute_url }}">

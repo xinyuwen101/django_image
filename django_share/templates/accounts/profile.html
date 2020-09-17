@@ -11,14 +11,14 @@
         <div class="col-md-7 mx-auto">
             <div class="row jumbotron bg-white border py-4 mt-5">
                 <div class="col">
-                    <p>Account: {{ user.username }}</p>
-                    <p>First Name: {{ user.first_name }}</p>
-                    <p>Last Name: {{ user.last_name }}</p>
+                    <p>Account: <code class="font-italic">{{ user.username }}</code></p>
+                    <p>First Name: <code class="font-italic">{{ user.first_name }}</code></p>
+                    <p>Last Name: <code class="font-italic">{{ user.last_name }}</code></p>
                 </div>
                 <div class="col">
-                    <p>Email: {{ user.email }}</p>
-                    <p>Followers: {{ user.followers.count }}</p>
-                    <p>Following: {{ user.following.count }}</p>
+                    <p>Email: <code class="font-italic">{{ user.email }}</code></p>
+                    <p>Followers: <code class="font-italic">{{ user.followers.count }}</code></p>
+                    <p>Following: <code class="font-italic">{{ user.following.count }}</code></p>
                 </div>
                 <div class="float-right">
                     {% if request.user.username != user.username %}
@@ -32,11 +32,8 @@
                 </div>
             </div>
             <div class="text-right">
-                <a href="{% url "accounts:user_list" %}" class="btn btn-outline-primary">See User List</a>
+                <a href="{% url "accounts:user_list" %}" class="btn btn-outline-primary px-5">Show users</a>
             </div>
         </div>
-
     </div>
-
-
 {% endblock %}
