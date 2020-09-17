@@ -1,3 +1,3 @@
 #!/bin/bash
 python manage.py collectstatic --noinput &&
-uwsgi --ini /home/ubuntu/django_share/uwsgi.ini
+uwsgi --ini /var/www/html/django_share/uwsgi.ini

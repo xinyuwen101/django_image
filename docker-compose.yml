@@ -1,22 +1,33 @@
 version: '3'
 
+volumes:
+  db_vol:
+  media_vol:
+
 services:
   db:
     container_name: db_0
     image: postgres
     environment:
       - POSTGRES_PASSWORD=admin2349
+    volumes:
+      - db_vol:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     restart: always
 
   web:
     container_name: web_0
-    build: ./django_blog
+    build: ./django_share
     expose:
       - "8000"
     volumes:
-      - ./django_blog:/var/www/html/django_blog
+      - ./django_share:/var/www/html/django_share
+      - media_vol:/var/www/html/django_share/media
+    links:
+      - db
+    depends_on:
+      - db
     environment:
       - DEBUG=False
     restart: always
@@ -31,7 +42,8 @@ services:
     expose:
       - "80"
     volumes:
-      - ./django_blog/static:/usr/share/nginx/html/static
+      - ./django_share/static:/usr/share/nginx/html/static
+      - media_vol:/usr/share/nginx/html/media
     links:
       - web
     depends_on:
