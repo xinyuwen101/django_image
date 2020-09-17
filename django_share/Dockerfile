@@ -2,11 +2,11 @@ FROM python
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /home/ubuntu/django_blog
+RUN mkdir -p /home/ubuntu/django_share
 
-WORKDIR /home/ubuntu/django_blog
+WORKDIR /home/ubuntu/django_share
 
-ADD . /home/ubuntu/django_blog
+ADD . /home/ubuntu/django_share
 
 RUN pip install -r requirements.txt
 
