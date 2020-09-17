@@ -14,7 +14,7 @@
         <!-- Image list -->
         <div class="card-columns mt-3">
             {% for image in images %}
-                <div class="card my-3">
+                <div class="card my-3 shadow-sm">
                     <a href="{{ image.get_absolute_url }}">
                         {% thumbnail image.image "320x240" crop="100%" as im %}
                             <a href="{{ image.get_absolute_url }}">
