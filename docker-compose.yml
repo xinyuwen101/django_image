@@ -11,7 +11,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=admin2349
     volumes:
-      - db_vol:/var/lib/postgresql/data/
+      - db_vol:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     restart: always
