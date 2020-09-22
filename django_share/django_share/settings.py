@@ -6,7 +6,7 @@ LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
 # auth backends
-SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+# SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
