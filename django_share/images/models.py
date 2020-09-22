@@ -13,7 +13,7 @@ class Image(models.Model):
     )
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, blank=True)
-    url = models.URLField()
+    url = models.URLField(blank=True)
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True, db_index=True)
 

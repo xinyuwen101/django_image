@@ -7,6 +7,7 @@ from .models import Contact
 from .forms import MyUserCreationForm
 
 
+@login_required
 def dashboard(request):
     return render(request, 'accounts/dashboard.html')
 

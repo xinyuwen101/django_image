@@ -6,14 +6,16 @@ LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
 # auth backends
-# AUTHENTICATION_BACKENDS = [
-    # 'django.contrib.auth.backends.ModelBackend',
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
     # 'accounts.authentication.EmailAuthBackend',
-    # 'social_core.backends.google.GoogleOAuth2',
-# ]
+    'social_core.backends.google.GoogleOAuth2',
+]
 
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '34380766847-4b03cb0ma73nokijcku31l7cg590dcq6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'GzH-bPYXkPpNByq_0LltWy1Q'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,7 +43,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountConfig',
     'images.apps.ImageConfig',
     'sorl.thumbnail',
-    # 'social_django',
+    'social_django',
 ]
 
 MIDDLEWARE = [

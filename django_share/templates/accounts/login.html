@@ -8,8 +8,8 @@
             <div class="text-center">
                 <h1>Log in</h1>
                 <small class="text-secondary font-weight-light mt-4">
-                    *For demo: username: <code class="font-italic">test</code>,
-                    password: <code class="font-italic">ishare2020</code>
+                    For demo: username <code class="font-italic">test</code>
+                    | password <code class="font-italic">ishare2020</code>
                 </small>
             </div>
             <div class="my-4 mx-5">
@@ -21,12 +21,15 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" value="ishare2020" required>
+                        <input type="password" name="password" id="password" class="form-control" value="ishare2020"
+                               required>
                     </div>
                     <input type="submit" value="Log in" class="btn btn-primary btn-block my-4">
                 </form>
+                <a class="btn btn-outline-danger btn-block mt-4 mb-5"
+                   href="{% url "social:begin" "google-oauth2" %}">
+                    Login with Google</a>
             </div>
-            {#    <li><a href="{% url "social:begin" "google-oauth2" %}">Login with Google</a></li>#}
         </div>
     </div>
 {% endblock %}
