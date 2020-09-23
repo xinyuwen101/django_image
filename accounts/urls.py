@@ -7,10 +7,10 @@ app_name = 'accounts'
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('login/',
-         auth_views.LoginView.as_view(template_name='accounts/login.html', redirect_field_name='next'),
+         auth_views.LoginView.as_view(template_name='ishare/accounts/login.html', redirect_field_name='next'),
          name='login'),
     path('logout/',
-         auth_views.LogoutView.as_view(template_name='accounts/dashboard.html'),
+         auth_views.LogoutView.as_view(template_name='ishare/accounts/dashboard.html'),
          name='logout'),
     path('register/', views.register, name='register'),
     path('profile/<str:username>', views.profile, name='profile'),

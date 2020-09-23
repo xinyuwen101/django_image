@@ -15,10 +15,10 @@ def image_upload(request):
             new_image = form.save(commit=False)
             new_image.user = request.user
             new_image.save()
-            return render(request, 'images/image_upload_done.html')
+            return render(request, 'ishare/images/image_upload_done.html')
     else:
         form = ImageForm()
-    return render(request, 'images/image_upload.html', {
+    return render(request, 'ishare/images/image_upload.html', {
         'form': form
     })
 
@@ -39,7 +39,7 @@ def image_list(request):
         images = paginator.page(paginator.num_pages)
     return render(
         request,
-        'images/image_list.html',
+        'ishare/images/image_list.html',
         {'images': images}
     )
 
@@ -50,7 +50,7 @@ def image_detail(request, id, slug):
     author = User.objects.filter(id=image.user_id).first()
     return render(
         request,
-        'images/image_detail.html',
+        'ishare/images/image_detail.html',
         {
             'image': image,
             'author': author

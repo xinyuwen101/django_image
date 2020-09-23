@@ -1,7 +1,7 @@
 import os
 
 # user auth URL
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = ''
 LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
@@ -10,7 +10,6 @@ LOGOUT_URL = '/logout'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    # 'accounts.authentication.EmailAuthBackend',
     'social_core.backends.google.GoogleOAuth2',
 ]
 

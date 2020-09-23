@@ -9,7 +9,7 @@ from .forms import MyUserCreationForm
 
 @login_required
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    return render(request, 'ishare/accounts/dashboard.html')
 
 
 def register(request):
@@ -21,12 +21,12 @@ def register(request):
                 user_form.cleaned_data['password1']
             )
             new_user.save()
-            return render(request, 'accounts/register_done.html')
+            return render(request, 'ishare/accounts/register_done.html')
     else:
         user_form = MyUserCreationForm()
     return render(
         request,
-        'accounts/register.html',
+        'ishare/accounts/register.html',
         {'user_form': user_form}
     )
 
@@ -36,7 +36,7 @@ def profile(request, username):
     user = User.objects.filter(username=username).first()
     return render(
         request,
-        'accounts/profile.html',
+        'ishare/accounts/profile.html',
         {'user': user}
     )
 
@@ -46,7 +46,7 @@ def user_list(request):
     all_users = User.objects.all()
     return render(
         request,
-        'accounts/user_list.html',
+        'ishare/accounts/user_list.html',
         {'all_users': all_users}
     )
 
