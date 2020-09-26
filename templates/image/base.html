@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "image/css/bootstrap.min.css" %}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static "image/css/style.css" %}">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "image/img/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "image/img/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "image/img/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "image/img/site.webmanifest" %}">
+
+    <!-- Title -->
+    <title>{% block title %}{% endblock %} | iShare</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<!-- Navbar -->
+{% include 'image/partials/navbar.html' %}
+
+<!-- Main comment -->
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+{% include 'image/partials/footer.html' %}
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static "image/js/jquery-3.5.1.slim.min.js" %}"></script>
+<script src="{% static "image/js/bootstrap.bundle.min.js" %}"></script>
+<script src="{% static "image/js/main.js" %}"></script>
+</body>
+</html>

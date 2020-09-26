@@ -1,4 +1,3 @@
-# from django.contrib import messages, auth
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -9,7 +8,7 @@ from .forms import MyUserCreationForm
 
 @login_required
 def dashboard(request):
-    return render(request, 'ishare/accounts/dashboard.html')
+    return render(request, 'image/accounts/dashboard.html')
 
 
 def register(request):
@@ -21,12 +20,12 @@ def register(request):
                 user_form.cleaned_data['password1']
             )
             new_user.save()
-            return render(request, 'ishare/accounts/register_done.html')
+            return render(request, 'image/accounts/register_done.html')
     else:
         user_form = MyUserCreationForm()
     return render(
         request,
-        'ishare/accounts/register.html',
+        'image/accounts/register.html',
         {'user_form': user_form}
     )
 
@@ -36,7 +35,7 @@ def profile(request, username):
     user = User.objects.filter(username=username).first()
     return render(
         request,
-        'ishare/accounts/profile.html',
+        'image/accounts/profile.html',
         {'user': user}
     )
 
@@ -46,7 +45,7 @@ def user_list(request):
     all_users = User.objects.all()
     return render(
         request,
-        'ishare/accounts/user_list.html',
+        'image/accounts/user_list.html',
         {'all_users': all_users}
     )
 

@@ -1,13 +1,13 @@
-{% extends "ishare/base.html" %}
+{% extends 'image/base.html' %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}Image upload done{% endblock %}
 
 {% block content %}
 
     <div class="container text-center my-5">
         <div class="display-4 mt-5">Successfully!</div>
         <div class="col-md-4 mx-auto mt-5">
-            <a class="btn btn-outline-primary btn-block my-5" href="{% url "accounts:login" %}">Log in</a>
+            <a class="btn btn-outline-primary btn-block mt-5" href="{% url 'images:image_list' %}">View images</a>
         </div>
     </div>
 
