@@ -22,30 +22,26 @@
                        aria-haspopup="true"
                        aria-expanded="false">About</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="https://linkedin.com/in/xywen" target="_blank">
-                            LinkedIn</a>
-                        <a class="dropdown-item"
-                           href="https://github.com/xinyuwen101/django_share" target="_blank">View on GitHub</a>
+                        <a class="dropdown-item" href="http://www.helloxinyuwen.com" target="_blank">Personal
+                            Website</a>
+                        <a class="dropdown-item" href="https://linkedin.com/in/xywen" target="_blank">LinkedIn</a>
+                        <a class="dropdown-item" href="https://github.com/xinyuwen101/django_share" target="_blank">GitHub</a>
+                        <a class="dropdown-item" href="mailto:me.xinyuwen@gmail.com" target="_blank">Email</a>
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link text-light"
-                           href="{% url 'accounts:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
+                    <li class="nav-item"><a class="nav-link text-light"
+                                            href="{% url 'accounts:profile' request.user.username %}">Hello, {{ request.user.first_name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'accounts:logout' %}">Log out <i class="fa fa-sign-out"></i></a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link text-light" href="{% url 'accounts:logout' %}">Log out <i
+                            class="fa fa-sign-out"></i></a></li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'accounts:register' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light"
-                           href="{% url 'accounts:login' %}">Log in <i class="fa fa-sign-in"></i></a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link text-light"
+                                            href="{% url 'accounts:register' %}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link text-light" href="{% url 'accounts:login' %}">Log in <i
+                            class="fa fa-sign-in"></i></a></li>
                 {% endif %}
             </ul>
         </div>
