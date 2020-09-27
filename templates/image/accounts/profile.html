@@ -20,7 +20,19 @@
                     <p>Followers: <code class="font-italic">{{ user.followers.count }}</code></p>
                     <p>Following: <code class="font-italic">{{ user.following.count }}</code></p>
                 </div>
-                <div class="float-right">
+                {#                <div class="float-right">#}
+                {#                    {% if request.user.username != user.username %}#}
+                {#                        {% if request.user in user.followers.all %}#}
+                {#                            <a class="btn btn-primary" href="{% url "accounts:unfollow" user.username %}">following</a>#}
+                {#                        {% else %}#}
+                {#                            <a class="btn btn-outline-primary"#}
+                {#                               href="{% url "accounts:follow" user.username %}">follow</a>#}
+                {#                        {% endif %}#}
+                {#                    {% endif %}#}
+                {#                </div>#}
+            </div>
+            <div class="row">
+                <div>
                     {% if request.user.username != user.username %}
                         {% if request.user in user.followers.all %}
                             <a class="btn btn-primary" href="{% url "accounts:unfollow" user.username %}">following</a>
@@ -30,9 +42,9 @@
                         {% endif %}
                     {% endif %}
                 </div>
-            </div>
-            <div class="text-right">
-                <a href="{% url "accounts:user_list" %}" class="btn btn-outline-primary px-5">Show all users</a>
+                <div class="ml-auto">
+                    <a href="{% url "accounts:user_list" %}" class="btn btn-outline-primary px-5">All users</a>
+                </div>
             </div>
         </div>
     </div>
