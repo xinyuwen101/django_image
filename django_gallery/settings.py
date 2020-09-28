@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 # user auth URL
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
