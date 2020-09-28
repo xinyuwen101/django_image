@@ -5,19 +5,18 @@ from django.urls import reverse
 
 
 class Image(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, blank=True)
+    description = models.TextField(blank=True)
+    created = models.DateField(auto_now_add=True, db_index=True)
+
+    image = models.ImageField(upload_to='images/%Y/%m/%d/')
 
     user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
         related_name='images_created'
     )
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, blank=True)
-    # url = models.URLField(blank=True)
-    description = models.TextField(blank=True)
-    created = models.DateField(auto_now_add=True, db_index=True)
-
-    image = models.ImageField(upload_to='images/%Y/%m/%d/')
 
     user_like = models.ManyToManyField(
         to=User,
