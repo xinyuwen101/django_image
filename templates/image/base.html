@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -15,17 +15,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static "image/css/style.css" %}">
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static "image/img/apple-touch-icon.png" %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static "image/img/favicon-32x32.png" %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static "image/img/favicon-16x16.png" %}">
-    <link rel="manifest" href="{% static "image/img/site.webmanifest" %}">
-
     <!-- Title -->
     <title>{% block title %}{% endblock %} | Gallery</title>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body>
 
 <!-- Navbar -->
 {% include 'image/partials/navbar.html' %}
