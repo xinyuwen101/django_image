@@ -9,9 +9,7 @@ class Image(models.Model):
     slug = models.SlugField(max_length=200, blank=True)
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True, db_index=True)
-
     image = models.ImageField(upload_to='images/%Y/%m/%d/')
-
     user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,

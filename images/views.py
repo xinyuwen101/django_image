@@ -15,7 +15,7 @@ def image_upload(request):
             new_image = form.save(commit=False)
             new_image.user = request.user
             new_image.save()
-            return render(request, 'image/images/image_upload_done.html')
+            return redirect('images:image_list')
     else:
         form = ImageForm()
     return render(request, 'image/images/image_upload.html', {

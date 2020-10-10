@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import path, include
 
 from .settings import MEDIA_ROOT, MEDIA_URL
 
