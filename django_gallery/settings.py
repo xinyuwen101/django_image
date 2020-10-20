@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'django_gallery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_gallery',
+        'NAME': 'gallery',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }

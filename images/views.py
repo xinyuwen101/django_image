@@ -23,7 +23,6 @@ def image_upload(request):
     })
 
 
-@login_required
 def image_list(request):
     images = Image.objects.all()
     paginator = Paginator(images, 6)
@@ -44,7 +43,6 @@ def image_list(request):
     )
 
 
-@login_required
 def image_detail(request, id, slug):
     image = Image.objects.filter(id=id, slug=slug).first()
     author = User.objects.filter(id=image.user_id).first()

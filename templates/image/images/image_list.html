@@ -6,52 +6,51 @@
 
 {% block content %}
 
-    <div class="container my-5">
-        <h1 class="display-4 text-center">Images</h1>
-        <div class="col-md-4 mx-auto mt-5">
-            <a class="btn btn-outline-primary btn-block" href="{% url "images:image_upload" %}">Upload an image</a>
-        </div>
-        <!-- Image list -->
-        <div class="card-columns mt-3">
-            {% for image in images %}
-                <div class="card my-3 shadow-sm">
-                    <a href="{{ image.get_absolute_url }}">
-                        {% thumbnail image.image "320x240" crop="100%" as im %}
-                            <a href="{{ image.get_absolute_url }}">
-                                <img class="card-img-top" src="{{ im.url }}" alt="{{ im.title }}">
-                            </a>
-                        {% endthumbnail %}
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ image.title }}</h5>
-                        <div class="card-text"><small class="text-muted">{{ image.created }}</small></div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+  <div class="container my-5">
+    <!-- Title -->
+    <h1 class="display-4 text-center">Images</h1>
 
-        <!-- Pagination -->
-        <nav class="mt-5">
-            <ul class="pagination justify-content-center">
-                {% if images.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ images.previous_page_number }}">&laquo; Previous</a></li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo; Previous</a></li>
-                {% endif %}
-                <li class="page-item disabled">
+    <!-- Image list -->
+    <div class="card-columns mt-5">
+      {% for image in images %}
+        <div class="card my-3 shadow-sm">
+          <a href="{{ image.get_absolute_url }}">
+            {% thumbnail image.image "320x240" crop="100%" as im %}
+              <a href="{{ image.get_absolute_url }}">
+                <img class="card-img-top" src="{{ im.url }}" alt="{{ im.title }}">
+              </a>
+            {% endthumbnail %}
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ image.title }}</h5>
+            <div class="card-text"><small class="text-muted">{{ image.created }}</small></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-5">
+      <ul class="pagination justify-content-center">
+        {% if images.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ images.previous_page_number }}">&laquo; Previous</a></li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo; Previous</a></li>
+        {% endif %}
+        <li class="page-item disabled">
                 <span class="page-link text-dark">
                     {{ images.number }} / {{ images.paginator.num_pages }}</span></li>
-                {% if images.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ images.next_page_number }}">Next &raquo;</a></li>
-                {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
+        {% if images.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ images.next_page_number }}">Next &raquo;</a></li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next &raquo;</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
 
 {% endblock %}
