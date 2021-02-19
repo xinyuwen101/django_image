@@ -37,7 +37,7 @@ SECRET_KEY = os.environ.get(
 # DEBUG = True
 DEBUG = bool(os.environ.get("DJANGO_DEBUG", True))
 
-ALLOWED_HOSTS = ["xinyuwen-image-share.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["xinyuwen-django-image-share.herokuapp.com", "localhost"]
 
 
 # Application definition
