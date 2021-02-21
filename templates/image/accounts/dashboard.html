@@ -9,11 +9,9 @@
     <p class="font-italic font-weight-light text-secondary">Share images that you love</p>
   </div>
 
-  <div class="mt-5">
+  <div class="mt-3">
     <div class="container">
-      <div class='row'>
-        <h3>Recent Posts</h3>
-      </div>
+      <h3 class='mb-5'>Recent Posts</h3>
       <div class="row">
         {% for image in images %}
         <div class="col-md-4 mb-4">
@@ -36,11 +34,7 @@
 
       <div class="col-md-4 mx-auto">
         <a class="btn btn-outline-primary btn-block" href="{% url 'images:image_list' %}"
-          >View images</a
-        >
-        <a class="btn btn-outline-primary btn-block" href="{% url 'images:image_upload' %}"
-          >Upload an image</a
-        >
+          >View images</a>
       </div>
     </div>
     {% endblock %}
