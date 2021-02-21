@@ -9,58 +9,44 @@ from images.models import Image
 
 def dashboard(request):
     images = Image.objects.all()[:3]
-    return render(request, 'image/accounts/dashboard.html')
+
+    context = {"images": images}
+
+    return render(request, "image/accounts/dashboard.html", context)
 
 
 def register(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         user_form = MyUserCreationForm(request.POST)
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
-            new_user.set_password(
-                user_form.cleaned_data['password1']
-            )
+            new_user.set_password(user_form.cleaned_data["password1"])
             new_user.save()
-            return render(request, 'image/accounts/register_done.html')
+            return render(request, "image/accounts/register_done.html")
     else:
         user_form = MyUserCreationForm()
-    return render(
-        request,
-        'image/accounts/register.html',
-        {'user_form': user_form}
-    )
+    return render(request, "image/accounts/register.html", {"user_form": user_form})
 
 
 @login_required
 def profile(request, username):
     user = User.objects.filter(username=username).first()
-    return render(
-        request,
-        'image/accounts/profile.html',
-        {'user': user}
-    )
+    return render(request, "image/accounts/profile.html", {"user": user})
 
 
 @login_required
 def user_list(request):
     all_users = User.objects.all()
-    return render(
-        request,
-        'image/accounts/user_list.html',
-        {'all_users': all_users}
-    )
+    return render(request, "image/accounts/user_list.html", {"all_users": all_users})
 
 
 @login_required
 def follow(request, username):
     user_to = User.objects.filter(username=username).first()
     user_from = request.user
-    con = Contact(
-        user_from=user_from,
-        user_to=user_to
-    )
+    con = Contact(user_from=user_from, user_to=user_to)
     con.save()
-    return redirect('accounts:profile', username=username)
+    return redirect("accounts:profile", username=username)
 
 
 @login_required
@@ -70,4 +56,4 @@ def unfollow(request, username):
     con = Contact.objects.filter(user_from=user_from, user_to=user_to).first()
     if con:
         con.delete()
-    return redirect('accounts:profile', username=username)
+    return redirect("accounts:profile", username=username)
