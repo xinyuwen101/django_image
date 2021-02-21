@@ -1,31 +1,33 @@
-{% extends 'image/base.html' %}
+{% extends 'image/base.html' %} {% load thumbnail %} {% block title %}Image list{% endblock %} {%
+block content %}
 
-{% load thumbnail %}
-
-{% block title %}Image list{% endblock %}
-
-{% block content %}
-
-  <div class="container my-5">
-    <!-- Title -->
+<!-- Title -->
+<div class="container my-5">
+  <div class="row">
     <h1 class="display-4 text-center">Images</h1>
+  </div>
+</div>
 
-    <!-- Image list -->
-    <div class="card-columns mt-5">
+<!-- Image list -->
+<div class="mt-5">
+  <div class="container">
+    <div class="row">
       {% for image in images %}
+      <div class="col-md-4 mb-4">
         <div class="card my-3 shadow-sm">
+          <!-- <a href="{{ image.get_absolute_url }}"> -->
+          {% thumbnail image.image "320x240" crop="100%" as im %}
           <a href="{{ image.get_absolute_url }}">
-            {% thumbnail image.image "320x240" crop="100%" as im %}
-              <a href="{{ image.get_absolute_url }}">
-                <img class="card-img-top" src="{{ im.url }}" alt="{{ im.title }}">
-              </a>
-            {% endthumbnail %}
+            <img class="card-img-top" src="{{ im.url }}" alt="{{ im.title }}" />
           </a>
+          {% endthumbnail %}
+          <!-- </a> -->
           <div class="card-body">
             <h5 class="card-title">{{ image.title }}</h5>
             <div class="card-text"><small class="text-muted">{{ image.created }}</small></div>
           </div>
         </div>
+      </div>
       {% endfor %}
     </div>
 
@@ -33,24 +35,31 @@
     <nav class="mt-5">
       <ul class="pagination justify-content-center">
         {% if images.has_previous %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ images.previous_page_number }}">&laquo; Previous</a></li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ images.previous_page_number }}">&laquo; Previous</a>
+        </li>
         {% else %}
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo; Previous</a></li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo; Previous</a>
+        </li>
         {% endif %}
         <li class="page-item disabled">
-                <span class="page-link text-dark">
-                    {{ images.number }} / {{ images.paginator.num_pages }}</span></li>
+          <span class="page-link text-dark">
+            {{ images.number }} / {{ images.paginator.num_pages }}</span
+          >
+        </li>
         {% if images.has_next %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ images.next_page_number }}">Next &raquo;</a></li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ images.next_page_number }}">Next &raquo;</a>
+        </li>
         {% else %}
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next &raquo;</a></li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next &raquo;</a>
+        </li>
         {% endif %}
       </ul>
     </nav>
   </div>
+</div>
 
 {% endblock %}
