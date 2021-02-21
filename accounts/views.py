@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 
 from .models import Contact
 from .forms import MyUserCreationForm
+from images.models import Image
 
 
 def dashboard(request):
+    images = Image.objects.all()[:3]
     return render(request, 'image/accounts/dashboard.html')
 
 

@@ -1,16 +1,45 @@
 {% extends "image/base.html" %}
-
 {% block title %}Welcome{% endblock %}
-
+{% load thumbnail %}
 {% block content %}
-    <div class="container text-center my-4">
-        <div class="py-5">
-            <h1 class="display-4">Welcome to GALLERY</h1>
-            <p class="font-italic font-weight-light text-secondary">Share images that you love</p>
+
+<div class="container text-center my-4">
+  <div class="py-5">
+    <h1 class="display-4">Welcome to GALLERY</h1>
+    <p class="font-italic font-weight-light text-secondary">Share images that you love</p>
+  </div>
+
+  <div class="mt-5">
+    <div class="container">
+      <div class="row">
+        {% for image in images %}
+        <div class="col-md-4 mb-4">
+          <div class="card my-3 shadow-sm">
+            <!-- <a href="{{ image.get_absolute_url }}"> -->
+            {% thumbnail image.image "320x240" crop="100%" as im %}
+            <a href="{{ image.get_absolute_url }}">
+              <img class="card-img-top" src="{{ im.url }}" alt="{{ im.title }}" />
+            </a>
+            {% endthumbnail %}
+            <!-- </a> -->
+            <div class="card-body">
+              <h5 class="card-title">{{ image.title }}</h5>
+              <div class="card-text"><small class="text-muted">{{ image.created }}</small></div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 mx-auto">
-            <a class="btn btn-outline-primary btn-block" href="{% url 'images:image_list' %}">View images</a>
-            <a class="btn btn-outline-primary btn-block" href="{% url 'images:image_upload' %}">Upload an image</a>
-        </div>
+        {% endfor %}
+      </div>
+
+      <div class="col-md-4 mx-auto">
+        <a class="btn btn-outline-primary btn-block" href="{% url 'images:image_list' %}"
+          >View images</a
+        >
+        <a class="btn btn-outline-primary btn-block" href="{% url 'images:image_upload' %}"
+          >Upload an image</a
+        >
+      </div>
     </div>
-{% endblock %}
+    {% endblock %}
+  </div>
+</div>
