@@ -25,7 +25,7 @@ def image_upload(request):
 
 def image_list(request):
     images = Image.objects.all()
-    paginator = Paginator(images, 6)
+    paginator = Paginator(images, 9)
     page = request.GET.get('page')
 
     try:
