@@ -78,11 +78,6 @@ Open your browser and visit `http://127.0.0.1:8000/` to access the application.
 Feel free to submit issues or pull requests to improve this project!
 ```
 
-## License
-```md
-This project is licensed under the MIT License.
-```
-
 ---
 **Author:** [Xinyu Wen](https://github.com/xinyuwen23)
 
